@@ -86,7 +86,7 @@ def checkin_view(request):
 				for_email = host.EMAIL
 				break
 		account_sid = "ACe8b0d3e7b60b470c115b9c07d1d9a704"
-		auth_token = "54e3060ecf1bdbd6a4470fb05776ec2c"
+		auth_token = 
 
 		client = Client(account_sid, auth_token)
 
@@ -146,7 +146,7 @@ def checkout_view(request):
 					break
 
 			account_sid = "ACe8b0d3e7b60b470c115b9c07d1d9a704"
-			auth_token = "54e3060ecf1bdbd6a4470fb05776ec2c"
+			auth_token = 
 
 			client = Client(account_sid, auth_token)
 
