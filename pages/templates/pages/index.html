@@ -1,0 +1,75 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title > VISITOR MANAGEMENT SYSTEM </title>
+    <style>
+        body {
+            background: url('{% static "pages/images/image6.jpeg" %}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+        }
+
+    </style>
+</head>
+
+<body id="overlay" >
+<div class="container">
+    <div class="row">
+            <form action="{% url 'home' %}" method="post" >
+                {% csrf_token %}
+                <br>
+                <h1 style="font-family:courier;color:brown;">  <b>  VISITOR &nbsp; &nbsp; &nbsp;  MANAGEMENT &nbsp; &nbsp; &nbsp;  SYSTEM   </font> </h1>
+                <br>
+                <br> <br>
+                <style>
+             a:link, a:visited
+            {
+                background-color: grey;
+                color: black;
+                padding: 14px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                 box-shadow: 10px 10px green;
+            }
+                 </style>
+                    <a href="http://127.0.0.1:8000/hform" onmouseover="return shadow()">  HOST LOGIN </a>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="http://127.0.0.1:8000/vform"> VISITOR CHECKIN </a>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="http://127.0.0.1:8000/oform"> VISITOR CHECKOUT </a>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="http://127.0.0.1:8000/eform"> HOST LOGOUT</a>
+            </form>
+        <br> <br> <br>
+        {% if con == 0 or con <= cont %}
+        <font color="olive"> <u> <h3 >Sorry, you can not check-in right now as your Host is not present.<br>Please wait for few minutes.</h3></u></font>
+        {% else %}
+        <h2 align="center" > <b> <font color="olive"> Your host has checked-in. </b> </h2>
+        <h4 align="center">  <u> HOST DETAILS: </u> </h4>
+        <h4 align="center">   Name:   {{return_host}}
+        <BR>
+        Phone:  {{return_phone}}
+        <br>
+            Email:  {{return_email}}
+        </h4>
+        {% endif %}
+    </div>
+    </div>
+    </div>
+</div>
+<br> <br> <br> <br> <br> <br> <br> <br> <br>
+<h6 align="left"> <b> <u> <font color="black">-DEVELOPED AND MANAGED BY: ADIT  SHAH </h6>
+</body>
+</html>

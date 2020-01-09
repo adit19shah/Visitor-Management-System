@@ -1,0 +1,140 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title> HOST ENTRY </title>
+    <style>
+        body {
+            background: url('{% static "pages/images/image6.jpeg" %}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+
+        }
+    </style>
+
+    <script >
+            function validateform()
+                    {
+                        var x = document.myForm.hpswd.value;
+                        var y = document.myForm.hname.value;
+                        var z = document.myForm.hphone.value;
+                        if(x==""||y==""||z==""||document.myForm.hemail.value=="")
+                        {
+                            alert("All the fields are mandatory");
+                            document.myForm.hname.focus();
+                            return false;
+                        }
+                        if(!isNaN(y))
+                        {
+                            alert("Please enter a valid name without any digits");
+                            document.myForm.hname.focus();
+                            return false;
+
+                        }
+                        if(x!="ramanujan")
+                        {
+                            alert("The password entered is incorrect");
+                            document.myForm.hpswd.focus();
+                            return false;
+                        }
+                        if(isNaN(z))
+                        {
+                            alert("Please enter a valid phone number");
+                            document.myForm.hphone.focus();
+                            return false;
+                        }
+
+                        if(z.length!=10)
+                        {
+                            alert("Please enter a 10 digit number");
+                            document.myForm.hphone.focus();
+                            return false;
+                         }
+
+                    }
+      </script>
+</head>
+<body id="overlay" >
+<div class="container">
+    <div class="row">
+        <div class="text-center" style="margin-top:1.2%;color: brown;" >
+            <h1 align="left" style="font-family:courier;">  <b>  VISITOR &nbsp; &nbsp;  MANAGEMENT  &nbsp; &nbsp; SYSTEM  </h1>
+                <br>
+                <style>
+             a:link, a:visited
+             {
+                background-color: grey;
+                color: black;
+                padding: 14px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                box-shadow: 10px 10px green;
+              }
+                </style>
+                <a href="http://127.0.0.1:8000/"> <B> HOME </B> </a>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="http://127.0.0.1:8000/vform"> VISITOR CHECKIN </a>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="http://127.0.0.1:8000/oform"> VISITOR CHECKOUT </a>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="http://127.0.0.1:8000/eform"> HOST LOGOUT</a>
+            <br> <br>
+            <h2> <b> <u> THE HOST FORM </u>  </h2>
+            <br>
+            <form name="myForm"  action="{% url 'hform' %}" method="post"  class="post-form" onsubmit="return validateform()" autocomplete="off">
+                {% csrf_token %}
+                <!-- <select class ="form-group row" name="hcabin">
+                <option value="select city" selected> select Cabin </option>
+                <option value="Cabin-1"> Cabin-1 </option>
+                <option value="Cabin-2"> Cabin-2 </option>
+                <option value="Cabin-3"> Cabin-3 </option>
+                </select>    -->
+                <div class="form-group row">
+                    <label for="example-email-input" class="col-2 col-form-label">NAME:</label>
+                    <div class="col-5">
+                        <input  class="form-control" type="text"  name="hname" maxlength="26">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-email-input" class="col-2 col-form-label">EMAIL:</label>
+                    <div class="col-5">
+                        <input class="form-control" type="email" id="example-email-input" name="hemail" maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-email-input" class="col-2 col-form-label">Phone +91:</label>
+                    <div class="col-5">
+                        <input class="form-control" type="text" name="hphone" maxlength="10" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-email-input" class="col-2 col-form-label"> Password: </label>
+                    <div class="col-5">
+                        <input class="form-control" type="password" name="hpswd" maxlength="32" >
+                    </div>
+                </div>
+
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary float-right"> Login </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

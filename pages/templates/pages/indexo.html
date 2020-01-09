@@ -1,0 +1,101 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title> VISITOR EXIT </title>
+    <style>
+        body {
+            background: url('{% static "pages/images/image6.jpeg" %}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+        }
+    </style>
+        <script >
+            function validateform()
+                    {
+                        var x = document.oform.ophone.value;
+                        if(x.length!=10)
+                        {
+                            alert("Please enter a 10 digit number");
+                            document.oform.ophone.focus();
+                            return false;
+                         }
+                        if(x=="")
+                        {
+                            alert("The field is mandatory");
+                            document.oform.ophone.focus();
+                            return false;
+                        }
+                        if(isNaN(x))
+                        {
+                            alert("Please enter a valid Phone Number");
+                            document.oform.ophone.focus();
+                            return false;
+                        }
+                    }
+      </script>
+</head>
+<body id="overlay" >
+<div class="container">
+    <div class="row">
+        <div class="text-center" style="margin-top:5%;color: brown">
+                            <h1 style="font-family:courier;"> <b>  VISITOR &nbsp; &nbsp;  MANAGEMENT  &nbsp; &nbsp; SYSTEM  </h1>
+                <br>
+                <style>
+             a:link, a:visited
+             {
+                background-color: grey;
+                color: black;
+                padding: 14px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                box-shadow: 10px 10px green;
+              }
+                 </style>
+                <a href="http://127.0.0.1:8000/"> <B> HOME </B> </a>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="http://127.0.0.1:8000/vform"> VISITOR CHECKIN </a>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="http://127.0.0.1:8000/hform"> HOST LOGIN  </a>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="http://127.0.0.1:8000/eform"> HOST LOGOUT</a>
+            <br> <br>
+            <h1> <b> <u> Visitor Checkout Here </u>  </b> </h1>
+            <br>
+            {% if hcout < hcin %}
+            <form action="{% url 'oform' %}" method="post" name="oform" onsubmit="return validateform()" autocomplete="off">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label for="example-email-input" class="col-2 col-form-label" >Phone +91:</label>
+                    <div class="col-5">
+                        <input class="form-control" type="text" name="ophone" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary float-right"> Let Me Out </button>
+                </div>
+                </form>
+                {% else %}
+                    <h3> All the visitors that had checked-in have already checked out. <br>
+                    Please contact your Host for any issues.<br>
+                    You need to Check-in first for doing Check-out.
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
