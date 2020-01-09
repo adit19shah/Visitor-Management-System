@@ -85,12 +85,12 @@ def checkin_view(request):
 				for_sms = host.Phone
 				for_email = host.EMAIL
 				break
-		account_sid = "ACe8b0d3e7b60b470c115b9c07d1d9a704"
+		account_sid = "ACd6427efe64f0dee1dc399d91a3dede26"
 		auth_token = 
 
 		client = Client(account_sid, auth_token)
 
-		client.messages.create(from_="+12567436039",
+		client.messages.create(from_="+13347586143",
 							   to=for_sms,
 							   body="Name\t\t: "+s.NAME+"\n"+"Email\t\t : "+s.EMAIL+"\nPhone\t\t: "+s.Phone+"\nCheckin-time: "+str(s.itime)+" IST",
 								   )
@@ -145,12 +145,12 @@ def checkout_view(request):
 					sample_itime = str(visitor.itime)
 					break
 
-			account_sid = "ACe8b0d3e7b60b470c115b9c07d1d9a704"
+			account_sid = "ACd6427efe64f0dee1dc399d91a3dede26"
 			auth_token = 
 
 			client = Client(account_sid, auth_token)
 
-			client.messages.create(from_="+12567436039",
+			client.messages.create(from_="+13347586143",
 								   to=for_sms,
 								   body="Name\t\t: " + sample_name + "\n" + "Email\t\t : " + sample_email + "\nPhone\t\t: " + s.Phone + "\nCheckin-time: " + sample_itime + " IST" + "\nCheckout-time:  " + str(
 									   s.otime) + " IST" + "\n Host Details:\nHost Name  :" + for_name + "\n Phone  :" + for_sms
