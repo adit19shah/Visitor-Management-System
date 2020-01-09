@@ -157,8 +157,8 @@ def checkout_view(request):
 								   )
 
 			subject = "A Visitor Checked Out !!!"
-			msg = body = "Name\t\t: " + sample_name + "\n" + "Email\t\t : " + sample_email + "\nPhone\t\t: " + s.Phone + "\nCheckin-time: " + sample_itime + "\nCheckout-time:  " + str(
-				s.otime) + "\n Host Details:\nHost Name  :" + for_name + "\n Phone  :" + for_sms
+			msg = body = "Name\t\t: " + sample_name + "\n" + "Email\t\t : " + sample_email + "\nPhone\t\t: " + s.Phone + "\nCheckin-time: " + sample_itime +" IST"+ "\nCheckout-time:  " + str(
+				s.otime) + " IST"+"\n Host Details:\nHost Name  :" + for_name +"\n Phone  :" + for_sms
 			to = for_email
 			res = send_mail(subject, msg, settings.EMAIL_HOST_USER, [to])
 			if (res == 1):
