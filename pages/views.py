@@ -85,8 +85,8 @@ def checkin_view(request):
 				for_sms = host.Phone
 				for_email = host.EMAIL
 				break
-		account_sid = "ACd6427efe64f0dee1dc399d91a3dede26"
-		auth_token = 
+		account_sid = "-------------------------------------------------------"
+		auth_token  = "-------------------------------------------------------"
 
 		client = Client(account_sid, auth_token)
 
@@ -145,8 +145,8 @@ def checkout_view(request):
 					sample_itime = str(visitor.itime)
 					break
 
-			account_sid = "ACd6427efe64f0dee1dc399d91a3dede26"
-			auth_token = 
+			account_sid ="----------------------------------------------"
+			auth_token  ="----------------------------------------------" 
 
 			client = Client(account_sid, auth_token)
 
